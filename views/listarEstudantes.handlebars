@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+       <a href="/estudantes/create">Cadastrar Novo Estudante</a>
+   <table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>idade</th>
+            <th>ações</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        {{#each estudantes}}
+        <tr>
+            <td>{{this.nome}}</td>
+            <td>{{this.idade}}</td>
+            <td>
+                <a href="/estudantes/{{this.id}}/edit">Editar</a>
+                <form action="/estudantes/{{this.id}}?_method=DELETE" method="POST">
+                    <button type="submit">Excluir</button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+   </table>
+ 
+</body>
+</html>
